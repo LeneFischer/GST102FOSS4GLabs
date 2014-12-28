@@ -66,7 +66,7 @@ In this task, you will use a digital terrain model to create several terrain rel
 
 1.	Open QGIS Desktop 2.6.1.
 2.	Add data. Click on **Add Raster Layer** button. Choose all four dtm_1km - rasterfiles. These raster layers has elevation values for each cell. This type of data is referred to as a digital terrain model, or DTM, for short. This particular dataset covers 4 sq km of North Sealand in Denmark (figure below). The light areas have the highest elevation and the dark areas the lowest elevation. The elevation is measured in meter above sealevel.
-![4 DTM images](figures/Digital_Elevation_Model_(DTM)_QGIS_Desktop.png "Digital Elevation Model (DTM) QGIS Desktop") 
+![4 DTM images](figures/4dtm.pgn "Digital Terrain Model") 
 3.	As you can see it is four seperate files. If we want to work with the data, it is complicated while they are in seperate files. There are two options  to change this: 
 **Merge** or **Build a Virtual Raster**. 
 
@@ -88,11 +88,16 @@ In this task, you will use a digital terrain model to create several terrain rel
 
 4. Click **OK**
 
+
+
 ![Build Virtual Raster](figures/build_virtual_raster.png "Build Virtual Raster")
+
+
 
 The new image is in one piece as show in this figure. Now it is possible to colourize, calculate and perform terrain analysis. But before all this you have to know more about the dataset. 
 
-![Digital Terrain Model DTM](figures/dtm.png "Digital Elevation Model (DTM) QGIS Desktop") 
+
+![Digital Terrain Model DTM](figures/dtm.png "Digital Terrain Model") 
 	
 
 ### Explore your dataset.
