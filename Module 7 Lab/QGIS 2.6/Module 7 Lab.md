@@ -32,8 +32,8 @@ In this lab, you will learn about topographic data and how to use it for analysi
 
 Rasters can be aerial photographs, imagery from satellites, scanned maps or pointdata interpolated into grid. In its simplest form, a raster consists of a matrix of cells (or pixels) organized into rows and columns (or a grid) where each cell contains a value representing information, such as height- or colourvalues. Each cell has a size. Using the size and the values, you can create new maps, calculate and create Spatial Analysis. Read more about raster on [What is raster data - esri.com](http://resources.arcgis.com/en/help/main/10.1/index.html#/What_is_raster_data/009t00000002000000/)
 
-![Raster Grid](figures/Raster_dataset.PNG "Build Virtual RasterRaster Grid")
 
+![Raster Grid](figures/raster_dataset.png "Raster Grid")
 
 
       
@@ -80,11 +80,11 @@ In this task, you will use a digital terrain model to create several terrain rel
 
 4. Click **OK**
 
-![Build Virtual Raster](figures/Build_virtual_raster.PNG "Build Virtual Raster")
+![Build Virtual Raster](figures/build_virtual_raster.png "Build Virtual Raster")
 
 The new image is in one piece as show in this figure. Now it is possible to colourize, calculate and perform terrain analysis. But before all this you have to know more about the dataset. 
 
-![Digital Terrain Model DTM](figures/Digital_Elevation_Model_(DTM)_QGIS_Desktop_2.png "Digital Elevation Model (DTM) QGIS Desktop") 
+![Digital Terrain Model DTM](figures/dtm.png "Digital Elevation Model (DTM) QGIS Desktop") 
 	
 
 ### Explore your dataset.
@@ -99,7 +99,8 @@ The new image is in one piece as show in this figure. Now it is possible to colo
 
 5.	Click the **Identify Feature** button and then click in the image. The X, Y and Z values for the exact point are shown in the window. The Z value are stored in **Band1**. The X and Y are Derived.
 
-![Identify Feature](figures/Identify_feature.png "Identify Feature")
+
+![Identify Feature](figures/identify_feature.png "Identify Feature")
 
 
 
@@ -109,7 +110,7 @@ The new image is in one piece as show in this figure. Now it is possible to colo
 3.	Click and Drag a line on the Map Canvas. Double click to finish. See a view of the Terrain profile.  
 
 
-![Profile Tool](figures/Profile_Tool.png "Profile Tool") 
+![Profile Tool](figures/profile_tool.png "Profile Tool") 
 
 ###Save Layer Definition
 Save your layer as **Layer Definition file** Lab7.qlr. 
@@ -130,7 +131,7 @@ You are going to use the Processing Toolbox in an advanced mode.
 To find an Algorithm - type the name in name in the **Search** field and then double click on the Algorithm to run it.
 
 
-![Processing Toolbox](figures/Processing_toolbox_advanced.png "Processing Toolbox Advanced") 
+![Processing Toolbox](figures/processing_toolbox_advanced.png "Processing Toolbox Advanced") 
 
 ### Hillshade
 First you will create a hillshade image which will allow you to get a better feel for the terrain in this area. A hillshade is a grayscale 3D model of the surface, with the sun's relative position taken into account for shading the image. This function uses the latitude and azimuth properties to specify the sun's position. To see how different a map can occour with light from different positions, you are going to create 3 maps:
@@ -153,12 +154,12 @@ What you choose as the right parametre, is depending of what you want to see. Ar
 7.	Close all Hillshade layers
 8.	Choose the parametre you like the most, and run the Algorithm again. This time Output File click **...** Filename **Hillshade_xx** xx for the Azimuth value
 	
-![Hillshade Parameters](figures/Hillshade_180_30.png "Hillshade Parameters")
+![Hillshade Parameters](figures/hillshade_180_30.png "Hillshade Parameters")
 
 
 
 
-![Hillshade Layer](figures/Hillshade_Layer.png "Hillshade Layer")
+![Hillshade Layer](figures/hillshade_layer.png "Hillshade Layer")
 
 This is grayscale hillshade renderings. Try to click the view off - one at the time - and see how different each layer looks like.
 Sometimes it can be difficult to see heights from pits. The eye is tricked. To help you read the map, you are going to put colour on the DTM and make it transparent on top of the hillshade. A colour hillshade image.
@@ -182,9 +183,9 @@ Sometimes it can be difficult to see heights from pits. The eye is tricked. To h
 
 
 
-![Styling_the_DEM](figures/Styling_the_DTM.png "Styling_the_DTM")
+![Styling_the_DEM](figures/styling_the_dtm.png "Styling_the_DTM")
 
-![Color_Hillshade_Image](figures/Color_Hillshade_Image2.png "Color_Hillshade_Image")
+![Color_Hillshade_Image](figures/color_hillshade_image2.png "Color_Hillshade_Image")
 
 
 ###Slope
@@ -215,12 +216,12 @@ One way to express slope is as a percentage. To calculate percent slope, divide 
 6. Click **Close** - Wait untill the Algorithm has finished
 6. Rename the layer to **Slope_Degree**
 
-![Slope Tool](figures/Slope_Tool.png "Slope Tool")
+![Slope Tool](figures/slope_tool.png "Slope Tool")
 
 The slope raster shows the steepest areas in white and the flattest terrain in black. The tool determines the steepness of each pixel by comparing the elevation value of each pixel to that of the eight surrounding pixels. The slope values are degrees of slope (figure below).
 
 
-![Slope Raster](figures/Slope_Raster.png "Slope Raster")
+![Slope Raster](figures/slope_raster.png "Slope Raster")
 
 
 ###Colorize the Slope
