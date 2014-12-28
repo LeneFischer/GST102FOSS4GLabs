@@ -44,6 +44,10 @@ This lab includes the following tasks:
 + Task 3 Reclassification
 + Task 4 Raster Calculator
 
+
+----------
+
+
 ### 2 Objective: Learn the Basics of Terrain Analysis
 
 The objective of this lab is to learn the basics of terrain analysis using QGIS Desktop. 
@@ -69,6 +73,10 @@ In this task, you will use a digital terrain model to create several terrain rel
 	If you merge the files, you get one large file, in this example it would be more than 40 MB, and only for 4 sq km. For larger areas this would be too large file to work with. The solution is to build a virtual raster. 
 
 4. Remove all the layers.
+
+
+----------
+
 
 ### Build a Virtual Raster
 
