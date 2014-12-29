@@ -41,8 +41,9 @@ This lab includes the following tasks:
 
 + Task 1 Explore data
 + Task 2 Terrain Analysis
-+ Task 3 Reclassification
-+ Task 4 Raster Calculator
++ Task 3 Create DSM from LIDAR
++ Task 4 Reclassification
++ Task 5 Raster Calculator
 
 
 ----------
@@ -58,9 +59,32 @@ To aid in your completion of this lab, each lab task has an associated video tha
 
 We recommend that you do not watch the videos before you attempt the tasks.  The reasoning for this is that while you are learning the software and searching for buttons, menus, etc…, you will better remember where these items are and, perhaps, discover other features along the way.  With that being said, please use the videos in the way that will best facilitate your learning and successful completion of this lab.
 
-In this task, you will use a digital terrain model to create several terrain related datasets: slope, aspect and hillshade. These terrain derived datasets can be important in site selection and other terrain based spatial analyses.
 
 ## Task 1 Explore data ##
+
+In this task, you will use a digital elevation model to create several terrain related datasets: slope, aspect and hillshade. These terrain derived datasets can be important in site selection and other terrain based spatial analyses. 
+The data is downloaded from **The Danish Geodata Agency** - [http://download.kortforsyningen.dk](http://download.kortforsyningen.dk) 
+
+> ###What is a elevation model?
+> An elevation model reflects the elevation of a landscape. The model can be represented by the points (X, Y) of known height (Z). The height refers to a well-defined level, usually sea level. Often the items organized in a uniform network.
+> 
+> Targeted different applications distinguish between two types of elevation models:
+> 
+> A digital terrain model contains elevation data for the basic terrain of coastal lines, rivers and lakes.
+> A surface model includes elevation data for vegetation, buildings, structures, etc. It shows forests and reflect human structures such as houses, roads, and vegetation on the land - it is located on the ground surface.
+> 
+> The terrain model can also be presented as contour lines with a certain equidistance, as is known from maps. Contour lines are generated from contiguous terrain points at a certain level.
+> 
+> 
+> **Datacollection**
+> The Danish elevation model is based on laser scanning from aircraft during recent years has been the most common method for collecting elevation data for elevation models.
+> 
+> A beam of laser pulses pointed at a speed rotating mirror, which sends the pulses through a hole in the bottom of an aircraft. The aircraft's position along the way determined by GPS, and its movements are measured with inertial instruments (eg. Gyros or accelerometers).
+> 
+> The laser beam emitted from the plane is reflected by the ground or surface, and the time taken by a laser pulse to travel from the plane to the surface and back to back in the plane, is an expression of two times the distance to the surface. By correcting for the aircraft motion and the height of the surface is available height above the sea level. The height of each measured point is stored with the corresponding latitude and longitude. This data collection of 3D elements constitute the so-called point cloud, which is the basis of both **terrain** and **surface** models. Point density varies with aircraft movements and surface characteristics. In Denmark's elevation model is point density on average about 4.5 point per. square meters.
+> 
+> Quote: **The Danish Geodata Agency** [http://gst.dk/emner/referencenet-hoejdemodel-opmaaling/danmarks-hoejdemodel/hvad-er-en-hoejdemodel/](http://gst.dk/emner/referencenet-hoejdemodel-opmaaling/danmarks-hoejdemodel/hvad-er-en-hoejdemodel/)
+
 
 ### Open QGIS Desktop and Add data
 
@@ -299,6 +323,29 @@ The output should resemble the figure below with values ranging from ~0-360 repr
 10. Save the Project
 
 ![Aspect Color](figures_dk/aspect_color.png "Aspect Color")
+
+
+----------
+### Task 3 Create DSM from LIDAR
+
+There are several ways to create DSM: From a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Task 2 Reclassification
 
