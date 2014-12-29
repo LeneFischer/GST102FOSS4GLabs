@@ -66,14 +66,14 @@ In this task, you will use a digital elevation model to create several terrain r
 The data is downloaded from **The Danish Geodata Agency** - [http://download.kortforsyningen.dk](http://download.kortforsyningen.dk) 
 
 > ###What is a elevation model?
-> An elevation model reflects the elevation of a landscape. The model can be represented by the points (X, Y) of known height (Z). The height refers to a well-defined level, usually sea level. Often the items organized in a uniform network.
+> An elevation model reflects the **elevation of a landscape**. The model can be represented by the points (X, Y) of known height (Z). The height refers to a well-defined level, usually sea level. Often the items organized in a uniform network.
 > 
 > Targeted different applications distinguish between two types of elevation models:
 > 
-> A digital terrain model contains elevation data for the basic terrain of coastal lines, rivers and lakes.
-> A surface model includes elevation data for vegetation, buildings, structures, etc. It shows forests and reflect human structures such as houses, roads, and vegetation on the land - it is located on the ground surface.
+> A **digital terrain model** contains elevation data for the basic terrain of coastal lines, rivers and lakes.
+> A **digital surface model** includes elevation data for vegetation, buildings, structures, etc. It shows forests and reflect human structures such as houses, roads, and vegetation on the land - it is located on the ground surface.
 > 
-> The terrain model can also be presented as contour lines with a certain equidistance, as is known from maps. Contour lines are generated from contiguous terrain points at a certain level.
+> The terrain model can also be presented as **contour lines** with a certain equidistance, as is known from maps. Contour lines are generated from contiguous terrain points at a certain level.
 > 
 > 
 > **Datacollection**
@@ -157,7 +157,7 @@ Rightclick at **Lab7>Save As Layer Definition file**.
 
 ## Task 2 Terrain Analysis ##
 
-You will use the GDAL Analysis tool in the Processing menu to create the three elevation related datasets.
+You will use the GDAL Analysis tool in the Processing menu to create the four elevation related datasets.
 
 ###Processing Toolbox
 You are going to use the Processing Toolbox in an advanced mode.
@@ -169,6 +169,25 @@ To find an Algorithm - type the name in name in the **Search** field and then do
 
 
 ![Processing Toolbox](figures_dk/processing_toolbox_advanced.png "Processing Toolbox Advanced") 
+
+### Contour
+Contour/isolines as vectors created from the raster data. A contour line follows the elevation. The interval between the lines are called equidistance.
+[http://en.wikipedia.org/wiki/Contour_line](http://en.wikipedia.org/wiki/Contour_line "Link to wiki")
+
+Create contourlines:
+
+1.	In the Search field type **Contour**>Choose **GDAL Contour**
+2.	Input Layer **Lab7**
+3.	Interval between contour lines **1**
+4.	Attribute name **elev**
+5.	Output File Click on **...** Filename **..\contour_1m**
+6.	Click **Run**
+7.	Click **Close** - Wait untill the Algorithm has finished
+8.	Rename the layer to **Contour_1m** 
+
+
+![Contour Layer](figures_dk/contour.png "Contour Layer")
+
 
 ### Hillshade
 First you will create a hillshade image which will allow you to get a better feel for the terrain in this area. A hillshade is a grayscale 3D model of the surface, with the sun's relative position taken into account for shading the image. This function uses the latitude and azimuth properties to specify the sun's position. To see how different a map can occour with light from different positions, you are going to create 3 maps:
@@ -248,7 +267,7 @@ One way to express slope is as a percentage. To calculate percent slope, divide 
 2. Input Layer **Lab7**
 3. Band **1**
 4. Scale **1**
-5. Output File Click on **...** Firlname **..\slope_degree**
+5. Output File Click on **...** Filename **..\slope_degree**
 5. Click **Run**
 6. Click **Close** - Wait untill the Algorithm has finished
 6. Rename the layer to **Slope_Degree**
