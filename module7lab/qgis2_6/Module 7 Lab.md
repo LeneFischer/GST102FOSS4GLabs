@@ -187,6 +187,23 @@ Create contourlines:
 
 
 ![Contour Layer](figures_dk/contour.png "Contour Layer")
+![Contour Lines](figures_dk/contour_line.png "Contour Lines")
+
+All the lines has the same color. Look into the Attritube table and see the data. In the column **elev** you can see the elevation in meter above sea level.
+
+To differ the lines you are going to graduate the colors.
+
+1. Open the Properties for **Contour_1m**> Select **Style** tab
+2. I**Column** choose **elev**
+3. **Color ramp** choose **Spectral** and invert.
+4. **Mode** choose **Preatty Breaks**
+5. Mark **Trim**
+6. Click **OK**
+7.  **Layer>Save as Layer Definition file** filename **contour.qlr**. You can open a single file with the color attached if it is saved as **.qlr**
+
+![Graduate Contour Layer](figures_dk/graduate_contour.png "Graduate Contour Layer")
+
+![Contour Layer Color](figures_dk/contour_line_color.png "Contour Layer Color")
 
 
 ### Hillshade
@@ -220,7 +237,7 @@ What you choose as the right parametre, is depending of what you want to see. Ar
 This is grayscale hillshade renderings. Try to click the view off - one at the time - and see how different each layer looks like.
 Sometimes it can be difficult to see heights from pits. The eye is tricked. To help you read the map, you are going to put colour on the DTM and make it transparent on top of the hillshade. A colour hillshade image.
  
-### Colourize the DTM
+### Colorize the DTM
 1.	Drag the DTM (**lab7**) on top in the Layers Table of Contents.  Open the Layer **Properties>Style tab** (figure below).
 	 
 2.	Change the Render type to **Singleband pseudocolor**
