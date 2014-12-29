@@ -30,7 +30,7 @@ This document was original modified from its original form by Kurt Menke and con
 
 In this lab, you will learn about topographic data and how to use it for analysis. You will learn how to create datasets such as slope, hillshades using QGIS Desktop. You will then learn how to combine them using raster algebra.
 
-Rasters can be aerial photographs, imagery from satellites, scanned maps or pointdata interpolated into grid. In its simplest form, a raster consists of a matrix of cells (or pixels) organized into rows and columns (or a grid) where each cell contains a value representing information, such as height- or colourvalues. Each cell has a size. Using the size and the values, you can create new maps, calculate and create Spatial Analysis. Read more about raster on [What is raster data - esri.com](http://resources.arcgis.com/en/help/main/10.1/index.html#/What_is_raster_data/009t00000002000000/)
+Rasters can be aerial photographs, imagery from satellites, scanned maps or point data interpolated into grid. In its simplest form, a raster consists of a matrix of cells (or pixels) organized into rows and columns (or a grid) where each cell contains a value representing information, such as height- or color values. Each cell has a size. Using the size and the values, you can create new maps, calculate and create Spatial Analysis. Read more about raster on [What is raster data - esri.com](http://resources.arcgis.com/en/help/main/10.1/index.html#/What_is_raster_data/009t00000002000000/)
 
 
 ![Raster Grid](figures_dk/raster_dataset.png "Raster Grid")
@@ -62,7 +62,7 @@ We recommend that you do not watch the videos before you attempt the tasks.  The
 
 ## Task 1 Explore data ##
 
-In this task, you will use a digital elevation model to create several terrain related datasets: slope, aspect and hillshade. These terrain derived datasets can be important in site selection and other terrain based spatial analyses. 
+In this task, you will use a digital elevation model to create several terrain related data sets: slope, aspect and hillshade. These terrain derived data sets can be important in site selection and other terrain based spatial analyses. 
 The data is downloaded from **The Danish Geodata Agency** - [http://download.kortforsyningen.dk](http://download.kortforsyningen.dk) 
 
 > ###What is a elevation model?
@@ -76,7 +76,7 @@ The data is downloaded from **The Danish Geodata Agency** - [http://download.kor
 > The terrain model can also be presented as **contour lines** with a certain equidistance, as is known from maps. Contour lines are generated from contiguous terrain points at a certain level.
 > 
 > 
-> **Datacollection**
+> **Data collection**
 > The Danish elevation model is based on laser scanning from aircraft during recent years has been the most common method for collecting elevation data for elevation models.
 > 
 > A beam of laser pulses pointed at a speed rotating mirror, which sends the pulses through a hole in the bottom of an aircraft. The aircraft's position along the way determined by GPS, and its movements are measured with inertial instruments (eg. Gyros or accelerometers).
@@ -89,9 +89,9 @@ The data is downloaded from **The Danish Geodata Agency** - [http://download.kor
 ### Open QGIS Desktop and Add data
 
 1.	Open QGIS Desktop 2.6.1.
-2.	Add data. Click on **Add Raster Layer** button. Choose all four dtm_1km - rasterfiles. These raster layers has elevation values for each cell. This type of data is referred to as a digital terrain model, or DTM, for short. This particular dataset covers 4 sq km of North Sealand in Denmark (figure below). The light areas have the highest elevation and the dark areas the lowest elevation. The elevation is measured in meter above sealevel.
+2.	Add data. Click on **Add Raster Layer** button. Choose all four dtm_1km - rasterfiles. These raster layers has elevation values for each cell. This type of data is referred to as a digital terrain model, or DTM, for short. This particular data set covers 4 sq km of North Sealand in Denmark (figure below). The light areas have the highest elevation and the dark areas the lowest elevation. The elevation is measured in meter above sea level.
 ![4 DTM images](figures_dk/4dtm.png "Digital Terrain Model") 
-3.	As you can see it is four seperate files. If we want to work with the data, it is complicated while they are in seperate files. There are two options  to change this: 
+3.	As you can see it is four separate files. If we want to work with the data, it is complicated while they are in separate files. There are two options  to change this: 
 **Merge** or **Build a Virtual Raster**. 
 
 	If you merge the files, you get one large file, in this example it would be more than 40 MB, and only for 4 sq km. For larger areas this would be too large file to work with. The solution is to build a virtual raster. 
@@ -106,9 +106,9 @@ The data is downloaded from **The Danish Geodata Agency** - [http://download.kor
 
 1. Click on **Raster>Miscellaneous>Build Virtual Raster (Catalog)**
 
-2. Select inputfiles - Choose the four files in the dataset.
+2. Select input files - Choose the four files in the data set.
 
-3. Select outputfile - write **Lab7.vrt** 
+3. Select output file - write **Lab7.vrt** 
 
 4. Click **OK**
 
@@ -124,9 +124,9 @@ The new image is in one piece as show in this figure. Now it is possible to colo
 ![Digital Terrain Model DTM](figures_dk/dtm.png "Digital Terrain Model") 
 	
 
-### Explore your dataset.
+### Explore your data set.
 	
-1.	Open the Layer Properties by doubleclick on the layer and choose the **General tab**. Notice that the raster is in the UTM coordinate system. UTM has X/Y coordinate values in meters. 
+1.	Open the Layer Properties by double click on the layer and choose the **General tab**. Notice that the raster is in the UTM coordinate system. UTM has X/Y coordinate values in meters. 
 
 2.	Now switch to the **Metadata** tab. Notice that the Pixel size is 0.4 x 0.4. This means each cell represents a 0.40 by 0.40 meter area. 
 
@@ -151,7 +151,7 @@ The new image is in one piece as show in this figure. Now it is possible to colo
 
 ###Save Layer Definition
 Save your layer as **Layer Definition file** Lab7.qlr. 
-Rightclick at **Lab7>Save As Layer Definition file**.
+Right click at **Lab7>Save As Layer Definition file**.
 
 
 
@@ -189,7 +189,7 @@ Create contourlines:
 ![Contour Layer](figures_dk/contour.png "Contour Layer")
 ![Contour Lines](figures_dk/contour_line.png "Contour Lines")
 
-All the lines has the same color. Look into the Attritube table and see the data. In the column **elev** you can see the elevation in meter above sea level.
+All the lines has the same color. Look into the Attribute table and see the data. In the column **elev** you can see the elevation in meter above sea level.
 
 To differ the lines you are going to graduate the colors.
 
@@ -199,7 +199,7 @@ To differ the lines you are going to graduate the colors.
 4. **Mode** choose **Preatty Breaks**
 5. Mark **Trim**
 6. Click **OK**
-7.  **Layer>Save as Layer Definition file** filename **contour.qlr**. You can open a single file with the color attached if it is saved as **.qlr**
+7.  **Layer>Save as Layer Definition file** file name **contour.qlr**. You can open a single file with the color attached if it is saved as **.qlr**
 
 ![Graduate Contour Layer](figures_dk/graduate_contour.png "Graduate Contour Layer")
 
@@ -207,14 +207,14 @@ To differ the lines you are going to graduate the colors.
 
 
 ### Hillshade
-First you will create a hillshade image which will allow you to get a better feel for the terrain in this area. A hillshade is a grayscale 3D model of the surface, with the sun's relative position taken into account for shading the image. This function uses the latitude and azimuth properties to specify the sun's position. To see how different a map can occour with light from different positions, you are going to create 3 maps:
+First you will create a hillshade image which will allow you to get a better feel for the terrain in this area. A hillshade is a gray scale 3D model of the surface, with the sun's relative position taken into account for shading the image. This function uses the latitude and azimuth properties to specify the sun's position. To see how different a map can occur with light from different positions, you are going to create 3 maps:
 
 - Azimuth from 180 (South)
 - Azimuth from 270 (West)
 - Azimuth from 300 (West/North/West)
 
 All tree maps with light from an Altitude of 30 degree.
-What you choose as the right parametre, is depending of what you want to see. Archaeologists use this feature to search the land prehistoric settlements. 
+What you choose as the right parameter, is depending of what you want to see. Archaeologists use this feature to search the land prehistoric settlements. 
 
 
 
@@ -223,9 +223,9 @@ What you choose as the right parametre, is depending of what you want to see. Ar
 3.	Change Altitude to **30**
 4.	Click **Run**
 5.	Right click at the layername **Output file**. Rename to **Hill_180**
-6.	Make two more Hillshades. Change parameter for Azimuth to 270 and 300. Keep the angle on 30. Rename the two new layers with the parametre as the first layer. Remember these layers are only temporary layer.
+6.	Make two more Hillshades. Change parameter for Azimuth to 270 and 300. Keep the angle on 30. Rename the two new layers with the parameter as the first layer. Remember these layers are only temporary layer.
 7.	Close all Hillshade layers
-8.	Choose the parametre you like the most, and run the Algorithm again. This time Output File click **...** Filename **Hillshade_xx** xx for the Azimuth value
+8.	Choose the parameter you like the most, and run the Algorithm again. This time Output File click **...** Filename **Hillshade_xx** xx for the Azimuth value
 	
 ![Hillshade Parameters](figures_dk/hillshade_180_30.png "Hillshade Parameters")
 
@@ -234,8 +234,8 @@ What you choose as the right parametre, is depending of what you want to see. Ar
 
 ![Hillshade Layer](figures_dk/hillshade_layer.png "Hillshade Layer")
 
-This is grayscale hillshade renderings. Try to click the view off - one at the time - and see how different each layer looks like.
-Sometimes it can be difficult to see heights from pits. The eye is tricked. To help you read the map, you are going to put colour on the DTM and make it transparent on top of the hillshade. A colour hillshade image.
+This is gray scale hillshade renderings. Try to click the view off - one at the time - and see how different each layer looks like.
+Sometimes it can be difficult to see heights from pits. The eye is tricked. To help you read the map, you are going to put color on the DTM and make it transparent on top of the hillshade. A color hillshade image.
  
 ### Colorize the DTM
 1.	Drag the DTM (**lab7**) on top in the Layers Table of Contents.  Open the Layer **Properties>Style tab** (figure below).
@@ -251,7 +251,7 @@ Sometimes it can be difficult to see heights from pits. The eye is tricked. To h
 6.	Switch to the **Transparency** tab and set the **Global transparency** to **50%**. Click **OK** and close the Layer Properties. Your map should now resemble the figure below.
 
 7.	Save your layer as **Layer Definition file** Lab7.qlr:
-8.	Rightclick at **Lab7>Save As Layer Definition file**. Overwrite the existing file.
+8.	Right click at **Lab7>Save As Layer Definition file**. Overwrite the existing file.
 9.	Save the Project as **raster_lab7**
 
 
@@ -299,13 +299,13 @@ The slope raster shows the steepest areas in white and the flattest terrain in b
 
 ###Colorize the Slope
 
-The Slope map are in greyscale. You are going to give the map colours.
+The Slope map are in grey scale. You are going to give the map colors.
 
 1. Open the **Layer Properties>Histogram**
-2. The values goes from 0-60 degree. But it is only a few cells which are above 30 degree. If you colorize with values from 0-60 the map will bee very difficult to read. A lot of cells will be in the same colorrange.
+2. The values goes from 0-60 degree. But it is only a few cells which are above 30 degree. If you colorize with values from 0-60 the map will bee very difficult to read. A lot of cells will be in the same color range.
 ![Slope Histogram](figures_dk/slope_histogram.png "Slope Histogram")
 3. Click on **Style tab**. Set the range from **Min: 0** to **Max 20**
-4. Generate a new colorramp. Choose **YlOrBr** 
+4. Generate a new color ramp. Choose **YlOrBr** 
 5. Click **+** Add value manually, and write **60**
 6. Double click on the pink color. Change the color to dark brown. Change the value to **60** and the label to **60**. Change all the labels to whole numbers.
 7. Save the Project
@@ -319,7 +319,7 @@ The Slope map are in greyscale. You are going to give the map colours.
 
 ###Aspect
 
-Now you will create an Aspect dataset. Aspect measures which cardinal direction the terrain in each pixel is facing (north facing vs. south facing etc.) 
+Now you will create an Aspect data set. Aspect measures which cardinal direction the terrain in each pixel is facing (north facing vs. south facing etc.) 
 
 1. In Processing Toolbox Search box type **Aspect**>Choose **GDAL Aspect**
 2. Input Layer **Lab7**
@@ -332,7 +332,7 @@ Now you will create an Aspect dataset. Aspect measures which cardinal direction 
 
 ![Aspect Raster tool](figures_dk/aspect_raster.png "Aspect Raster Tool")
 
-The result - Aspect map in greyscale
+The result - Aspect map in grey scale
 
 ![Aspect Raster Layer](figures_dk/aspect_raster_layer.png "Aspect Raster Layer")
 
@@ -342,7 +342,7 @@ The result - Aspect map in greyscale
 
 ###Colorize the Aspect
 
-The Slope map are in greyscale. You are going to give the map colours.
+The Slope map are in grey scale. You are going to give the map colors.
 The output should resemble the figure below with values ranging from ~0-360 representing degrees (0=north, 90= east, 180 = south and 270 = west). 4 colors  + 1 for flat area. In total 5. 
 
 
