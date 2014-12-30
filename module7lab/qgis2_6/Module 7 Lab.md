@@ -362,13 +362,19 @@ The output should resemble the figure below with values ranging from ~0-360 repr
 
 
 ----------
-### Task 3 Create DSM from LIDAR
+### Task 3 Create DSM from LIDAR point cloud
 
-There are several ways to create DSM: From a
+There are several ways to create DSM (Digital Surface Model): In this Task we use Airborne LIDAR data. Read an introduction about LIDAR at this link:
+[http://www.forestry.gov.uk/forestry/INFD-6RVC9J#5return](http://www.forestry.gov.uk/forestry/INFD-6RVC9J#5return "Forestry.gov.uk")
 
+The data set is from the Danish Geodata Agency. [http://download.kortforsyningen.dk/content/dhmpunktsky](http://download.kortforsyningen.dk/content/dhmpunktsky)
+At the Geoagency it is also possible to download a DSM 0,4 m Grid
 
+The fileformat we are using is LAS or LAZ. The tool are LAStools from Rapidlasso. This tool are incorporated in QGIS. But before using it, you have to download a ZIP file and install. Follow the instruction on [http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/](http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/ "How to install LAStools")
 
+Before working with the data in QGIS. Try to download [http://www.fugroviewer.com/](http://www.fugroviewer.com/). In this viewer you can filter, view n 3D, create a profile and measure.
 
+[http://rapidlasso.com/category/tutorials/](http://rapidlasso.com/category/tutorials/ "More tutorials about using LAStools")
 
 
 
