@@ -2,7 +2,7 @@
 ## Lab 7 - Raster Data Analysis - Working with Topographic Data
 ### Objective – Learn the Basics of Terrain Analysis
 
-Document Version: 12/25/2014
+Document Version: 12/31/2014
 
 **University of Copenhagen Lab Author:**
 Lene Fischer  
@@ -266,7 +266,7 @@ Sometimes it can be difficult to see heights from pits. The eye is tricked. To h
 > Slope is a measure of change in elevation. It is a crucial parameter in several well-known predictive models used for environmental management, including the Universal Soil Loss Equation and agricultural non-point source pollution models. 
 One way to express slope is as a percentage. To calculate percent slope, divide the difference between the elevations of two points by the distance between them, then multiply the quotient by 100. The difference in elevation between points is called the rise. The distance between the points is called the run. Thus, percent slope equals (rise / run) x 100.
 
-> ![Slope Percent](figures/slope_percent.gif "slope_percent")
+> ![Slope Percent](figures_dk/slope_percent.gif "slope_percent")
 > 
 > Another way to express slope is as a slope angle, or degree of slope. As shown below, if you visualize rise and run as sides of a right triangle, then the degree of slope is the angle opposite the rise. Since degree of slope is equal to the tangent of the fraction rise/run, it can be calculated as the arctangent of rise/run.
 > 
@@ -357,24 +357,96 @@ The output should resemble the figure below with values ranging from ~0-360 repr
 8. Click **+** Add value manually, and write **60**
 9. Change all the labels to interval **0-90, 90-180, 180-270, 270-360, Flat.**
 10. Save the Project
+11. **Remove** all files
 
 ![Aspect Color](figures_dk/aspect_color.png "Aspect Color")
 
 
 ----------
-### Task 3 Create DSM from LIDAR point cloud
+### Task 3 Create DSM from LiDAR point cloud
 
-There are several ways to create DSM (Digital Surface Model): In this Task we use Airborne LIDAR data. Read an introduction about LIDAR at this link:
+There are several ways to create DSM (Digital Surface Model): In this Task we use Airborne LiDAR data. Read an introduction about LiDAR at this link:
 [http://www.forestry.gov.uk/forestry/INFD-6RVC9J#5return](http://www.forestry.gov.uk/forestry/INFD-6RVC9J#5return "Forestry.gov.uk")
 
 The data set is from the Danish Geodata Agency. [http://download.kortforsyningen.dk/content/dhmpunktsky](http://download.kortforsyningen.dk/content/dhmpunktsky)
 At the Geoagency it is also possible to download a DSM 0,4 m Grid
 
-The fileformat we are using is LAS or LAZ. The tool are LAStools from Rapidlasso. This tool are incorporated in QGIS. But before using it, you have to download a ZIP file and install. Follow the instruction on [http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/](http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/ "How to install LAStools")
+The file format we are using is LAS or LAZ. The tool are LAStools from Rapidlasso. This tool are incorporated in QGIS. But before using it, you have to download a ZIP file and install. Follow the instruction on [http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/](http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/ "How to install LAStools")
 
 Before working with the data in QGIS. Try to download [http://www.fugroviewer.com/](http://www.fugroviewer.com/). In this viewer you can filter, view n 3D, create a profile and measure.
 
+
+![FugroViewer](figures_dk/fugroviewer.png "FugroViewer")
+
+###Create a DSM
+
+1. In Processing Toolbox open the folder for **Tools for LiDAR data** open the folder **LAStools**
+2. Double click on **lastoDEM**
+3. Input LAS/LAZ file **\1km_6207_705.laz**
+4. stepsize /pixel size **0,4**. (Same size as the DTM we use)
+5. Attribute **elevation**
+6. Product **actual values**
+7. Output rasterfile **\dsm_1km_6207_705.tif**
+8. Click **Run**
+9. Click **Close** - Wait untill the Algorithm has finished
+10. Rename the layer from **Output Raster file** to **dsm_1km_6207_705**
+
+There are diagonal lines in the image - this is a watermark from rapidlasso. For work without watermarks you have to buy a licence.
+
+Try the **Profile tool** to see the data sets from another angle. You can now read the tree height, but it is difficult. Later you are going to calculate on both rasterfiles and extract the actual height.
+
+Remove the layer
+
+![las2DEM](figures_dk/las2dem.png "las2DEM")
+
+![DSM](figures_dk/dsm_from_point.png "DSM")
+
+### Extracting buildings as Shape
+
+With the pointcloud data and LAStools you can filter the data and create Shape files.
+
+In the next task you are going to create footprints of the buildings as a Shape file.
+For filtering the points by the Classification you must know the values. In the figure you can see the values shown in FugroViewer
+![Classification Values](figures_dk/classification.png "Classification Values")
+
+You need the values for **Ground** and **Building** This is **2** and **6**.
+
+
+1. In Processing Toolbox open the folder for **Tools for LiDAR data** open the folder **LAStools**
+2. Double click on **lasboundry**
+3. Input LAS/LAZ file **\1km_6207_705.laz**
+4. Filter **keep_class 6** Class 6 are buildings
+5. Concavety **0,8**
+6. Disjoint polygon **x**
+7. Output rasterfile **\building_1km_6207_705.shp**
+8. Click **Run**
+9. Click **Close** - Wait untill the Algorithm has finished
+10. Rename the layer from **Output vector file** to **building_1km_6207_705**
+
+![lasboundry](figures_dk/lasboundry.png "lasboundry")
+
+![Buildings](figures_dk/buildings.png "Buildings")
+
+
+
+### Clip Raster with Vector
+In this task you are going to Clip the DSM (raster) layer with the Building (Shape) layer.
+
+1. In Processing Toolbox Search box type **Clip raster**>Choose **GDAL Clip Raster by mask layer**
+2. Input Layer **dsm_1km_6207_705.tif**
+3. Mask layer **building_1km_6207_705**
+4. Create and output Aplha band **X**
+4. Output File Click on **...** Filename **..\building_1km_6207_705.shp**
+5. Click **Run**
+6. Click **Close** - Wait untill the Algorithm has finished
+7. Rename the layer to **Building**
+
+### Slops ans Aspect for the Buildings
+Create two layers: Slope and Aspect for the buildings. These layers are later to be used for either Green roofs or Solar panels. 
+
+
 [http://rapidlasso.com/category/tutorials/](http://rapidlasso.com/category/tutorials/ "More tutorials about using LAStools")
+[http://rapidlasso.com/2014/10/23/discriminating-vegetation-from-buildings/](http://rapidlasso.com/2014/10/23/discriminating-vegetation-from-buildings/ "More tutorials")
 
 
 
@@ -389,7 +461,9 @@ Before working with the data in QGIS. Try to download [http://www.fugroviewer.co
 
 
 
-### Task 2 Reclassification
+----------
+
+### Task 4 Reclassification
 
 Now that you have created the slope and aspect data you will reclassify them into meaningful categories. Raster reclassification is a method for aggregating data values into categories. In this case, you will be reclassifying them into categories important to identifying habitat suitability for a plant. Once the slope and aspect data have been reclassified you will combine them in Task 3 to identify suitable habitat areas.
 
