@@ -435,7 +435,7 @@ In this task you are going to Clip the DSM (raster) layer with the Building (Sha
 1. In Processing Toolbox Search box type **Clip raster**>Choose **GDAL Clip Raster by mask layer**
 2. Input Layer **dsm_1km_6207_705.tif**
 3. Mask layer **building_1km_6207_705**
-4. Create and output Aplha band **X**
+4. Create and output Alpha band **X**
 4. Output File Click on **...** Filename **..\building_1km_6207_705.shp**
 5. Click **Run**
 6. Click **Close** - Wait untill the Algorithm has finished
