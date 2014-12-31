@@ -444,6 +444,8 @@ In this task you are going to Clip the DSM (raster) layer with the Building (Sha
 ### Slops ans Aspect for the Buildings
 Create two layers: Slope and Aspect for the buildings. These layers are later to be used for either Green roofs or Solar panels. 
 
+...** More text to come :-)**
+
 
 [http://rapidlasso.com/category/tutorials/](http://rapidlasso.com/category/tutorials/ "More tutorials about using LAStools")
 [http://rapidlasso.com/2014/10/23/discriminating-vegetation-from-buildings/](http://rapidlasso.com/2014/10/23/discriminating-vegetation-from-buildings/ "More tutorials")
