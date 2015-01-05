@@ -349,15 +349,13 @@ The output should resemble the figure below with values ranging from ~0-360 repr
 1. Open the **Layer Properties>Style**
 2. The values goes from 0-360 degree.
 ![Aspect Style](figures_dk/aspect_style.png "Aspect Style")
-3. Click on **Style tab**. Set the range from **Min: 0** to **Max 20**
+3. Click on **Style tab**. Set the range from **Min: 0** to **Max360**
 4. Generate a new color map. Choose **Random colors** 
 5. Mode **Equal interval** Classes **5**
-6. Min **0** Max **360**
-7. Double click on **360** and write **-9999**
-8. Click **+** Add value manually, and write **60**
-9. Change all the labels to interval **0-90, 90-180, 180-270, 270-360, Flat.**
-10. Save the Project
-11. **Remove** all files
+6. Double click on **360** and write **-9999**
+7. Change all the labels to interval **0-90, 90-180, 180-270, 270-360, Flat.**
+8. Save the Project
+9. **Remove** all files
 
 ![Aspect Color](figures_dk/aspect_color.png "Aspect Color")
 
