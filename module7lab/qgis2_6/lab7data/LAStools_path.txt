@@ -1,0 +1,1 @@
+C:\Program Files\QGIS Brighton\apps\qgis\python\plugins\processing\algs\lidar\lastools
