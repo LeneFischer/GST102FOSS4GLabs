@@ -61,7 +61,14 @@ We recommend that you do not watch the videos before you attempt the tasks.  The
 
 
 ## Task 1 Explore data ##
+###Important about data storage
+Create a folder without space or special characters. Example **c:\lab7data\**.
+Insert the downloaded data in the folder. Some functions in **Processing** does not work if data name is with special characters.
 
+###Important for **Mac**
+For using GDAL and LAStools please install Wine - Follow the instruction on [http://rapidlasso.com/2014/10/04/using-lastools-on-mac-os-x-with-wine/](http://rapidlasso.com/2014/10/04/using-lastools-on-mac-os-x-with-wine/)
+
+ 
 In this task, you will use a digital elevation model to create several terrain related data sets: slope, aspect and hillshade. These terrain derived data sets can be important in site selection and other terrain based spatial analyses. 
 The data is downloaded from **The Danish Geodata Agency** - [http://download.kortforsyningen.dk](http://download.kortforsyningen.dk) 
 
@@ -369,46 +376,52 @@ There are several ways to create DSM (Digital Surface Model): In this Task we us
 The data set is from the Danish Geodata Agency. [http://download.kortforsyningen.dk/content/dhmpunktsky](http://download.kortforsyningen.dk/content/dhmpunktsky)
 At the Geoagency it is also possible to download a DSM 0,4 m Grid
 
-The file format we are using is LAS or LAZ. The tool are LAStools from Rapidlasso. This tool are incorporated in QGIS. But before using it, you have to download a ZIP file and install. Follow the instruction on [http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/](http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/ "How to install LAStools")
-
 Before working with the data in QGIS. Try to download [http://www.fugroviewer.com/](http://www.fugroviewer.com/). In this viewer you can filter, view n 3D, create a profile and measure.
 
 
 ![FugroViewer](figures_dk/fugroviewer.png "FugroViewer")
 
-###Create a DSM
+
+The file format we are using is LAS or LAZ. The tool are LAStools from Rapidlasso. This tool are incorporated in QGIS. But before using it, you have to download a ZIP file and install. Follow the instruction on [http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/](http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/ "How to install LAStools") Please go to Step 4 in the guide.
+
+The downloaded LAStools zipfil has to be unzipped and placed in a folder with no special characters or space as the data folder Example: **c:\lastools\**
+
+
+###Create a DTM with Buildings
+
+With the pointcloud data and LAStools you can filter the data and create both Raster and Shape files. For filtering the points by the Classification you must know the values. In the figure you can see the values shown in FugroViewer
+![Classification Values](figures_dk/classification.png "Classification Values")
+
+In this task you are going to create a raster file with terrain and buildings.
+Find the values for buildings and ground in the  figure.
+
 
 1. In Processing Toolbox open the folder for **Tools for LiDAR data** open the folder **LAStools**
 2. Double click on **lastoDEM**
 3. Input LAS/LAZ file **\1km_6207_705.laz**
-4. stepsize /pixel size **0,4**. (Same size as the DTM we use)
-5. Attribute **elevation**
-6. Product **actual values**
-7. Output rasterfile **\dsm_1km_6207_705.tif**
-8. Click **Run**
-9. Click **Close** - Wait untill the Algorithm has finished
-10. Rename the layer from **Output Raster file** to **dsm_1km_6207_705**
+4. Filter by **keep_class 2 6**
+5. stepsize /pixel size **0,4**
+6. Attribute **elevation**
+7. Product **actual values**
+8. Output rasterfile **\building_dtm_1km_6207_705.tif**
+9. Click **Run**
+10. Click **Close** - Wait untill the Algorithm has finished
+11. Rename the layer from **Output Raster file** to **building_dtm_1km_6207_705**
 
 There are diagonal lines in the image - this is a watermark from rapidlasso. For work without watermarks you have to buy a licence.
 
 Try the **Profile tool** to see the data sets from another angle. You can now read the tree height, but it is difficult. Later you are going to calculate on both rasterfiles and extract the actual height.
 
-Remove the layer
-
 ![las2DEM](figures_dk/las2dem.png "las2DEM")
 
 ![DSM](figures_dk/dsm_from_point.png "DSM")
 
-### Extracting buildings as Shape
 
-With the pointcloud data and LAStools you can filter the data and create Shape files.
 
 In the next task you are going to create footprints of the buildings as a Shape file.
-For filtering the points by the Classification you must know the values. In the figure you can see the values shown in FugroViewer
-![Classification Values](figures_dk/classification.png "Classification Values")
+You need the values for **Building** This is **6**.
 
-You need the values for **Ground** and **Building** This is **2** and **6**.
-
+### Extracting buildings as Shape
 
 1. In Processing Toolbox open the folder for **Tools for LiDAR data** open the folder **LAStools**
 2. Double click on **lasboundry**
@@ -428,19 +441,19 @@ You need the values for **Ground** and **Building** This is **2** and **6**.
 
 
 ### Clip Raster with Vector
-In this task you are going to Clip the DSM (raster) layer with the Building (Shape) layer.
+In this task you are going to Clip the Building DTM (raster) layer with the Building (Shape) layer.
 
 1. In Processing Toolbox Search box type **Clip raster**>Choose **GDAL Clip Raster by mask layer**
-2. Input Layer **dsm_1km_6207_705.tif**
+2. Input Layer **Building_dtm_1km_6207_705.tif**
 3. Mask layer **building_1km_6207_705**
 4. Create and output Alpha band **X**
-4. Output File Click on **...** Filename **..\building_1km_6207_705.shp**
+4. Output File Click on **...** Filename **..\building_1km_6207_705.tif**
 5. Click **Run**
 6. Click **Close** - Wait untill the Algorithm has finished
-7. Rename the layer to **Building**
+7. Rename the layer to **Building_Raster**
 
 ### Slops ans Aspect for the Buildings
-Create two layers: Slope and Aspect for the buildings. These layers are later to be used for either Green roofs or Solar panels. 
+Create two layers: Slope and Aspect for the raster buildings. These layers are later to be used for either Green roofs or Solar panels. 
 
 ...** More text to come :-)**
 
