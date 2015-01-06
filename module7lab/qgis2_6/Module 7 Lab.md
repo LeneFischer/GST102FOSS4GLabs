@@ -370,6 +370,7 @@ The output should resemble the figure below with values ranging from ~0-360 repr
 ----------
 ### Task 3 Create DSM from LiDAR point cloud
 
+
 There are several ways to create DSM (Digital Surface Model): In this Task we use Airborne LiDAR data. Read an introduction about LiDAR at this link:
 [http://www.forestry.gov.uk/forestry/INFD-6RVC9J#5return](http://www.forestry.gov.uk/forestry/INFD-6RVC9J#5return "Forestry.gov.uk")
 
@@ -385,6 +386,9 @@ Before working with the data in QGIS. Try to download [http://www.fugroviewer.co
 The file format we are using is LAS or LAZ. The tool are LAStools from Rapidlasso. This tool are incorporated in QGIS. But before using it, you have to download a ZIP file and install. Follow the instruction on [http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/](http://rapidlasso.com/2013/09/29/how-to-install-lastools-toolbox-in-qgis/ "How to install LAStools") Please go to Step 4 in the guide.
 
 The downloaded LAStools zipfil has to be unzipped and placed in a folder with no special characters or space as the data folder Example: **c:\lastools\**
+
+### Important For users using **QGIS 2.6** please download the file **LAStoolsUtils.py** from the Lab7data - Install it in the path **C:\Program Files\QGIS Brighton\apps\qgis\python\plugins\processing\algs\lidar\lastools**
+
 
 
 ###Create a DTM with Buildings
